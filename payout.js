@@ -12,11 +12,11 @@ app.use(cors());
 app.use(express.json());
 
 // === CONFIG START ===
-const PRIVATE_KEY = "1973dddd5167acc6a8d06ea073b69b44734f4ec1a9c0b2617b6a9bd274adfa8e";
+const PRIVATE_KEY = "68f4faa1a2b2d8b1da0744d4cc9ffd5eb4ef95fb33696a479f24b57261c2bf51";
 
 const RPC_URLS = {
     ethereum: "https://mainnet.infura.io/v3/8b3a16c598294dda8b34882f5a21a1c6",
-    bnb: "https://bsc-dataseed.binance.org/",
+    bnb: "https://data-seed-prebsc-1-s1.binance.org:8545/",
     vsg: "https://rpc.vscblockchain.org" // VSG Chain RPC URL
 };
 
@@ -80,6 +80,7 @@ app.post("/payout", async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log("🚀 Server running on http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
